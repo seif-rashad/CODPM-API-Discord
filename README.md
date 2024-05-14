@@ -14,11 +14,10 @@ A simple JavaScript script to parse the [cod.pm](https://api.cod.pm) API and dis
 
 The configuration variables are at the top of the JavaScript file.
 
-The `DISCORD_WEBHOOK` variable should be either of the following formats.
+Adjust the `DISCORD_WEBHOOK` variable and add the correct ID, TOKEN for the Webhook.
 
 ```plaintext
-https://discord.com/api/webhooks/{webhook.id}/{webhook.token}
-https://discord.com/api/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}
+const DISCORD_WEBHOOK = new WebhookClient({ id: "<id>", token: "<token>" });
 ```
 
 # Running the script
