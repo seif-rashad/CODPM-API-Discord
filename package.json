@@ -1,0 +1,14 @@
+{
+  "name": "codpm",
+  "version": "1.0.0",
+  "description": "A simple JavaScript script to parse the [cod.pm](https://api.cod.pm) API and display formatted text in a Discord channel via the Discord [webhook](https://discord.com/developers/docs/resources/webhook) API.",
+  "main": "CODPM-API-Discord.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.15.2"
+  }
+}
