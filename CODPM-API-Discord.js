@@ -1,12 +1,12 @@
 const { WebhookClient } = require("discord.js");
 const DISCORD_WEBHOOK = new WebhookClient({ id: "1239983856640196808", token: "NQoV5pDC5Zw-zVfBIlewSJTFoLx8srWsCsC4m9V4BeKBQ7OdCqrLUgnu5ldyWOCcmsFs" });
-let LAST_MESSAGE_ID = null;
 const DISCORD_TABLELAYOUT = 'ansi'; // 'ansi' or 'unicode'
 const DISCORD_MAXEMBEDS = 5;
 const CODPM_GAME = 'cod'; // cod, coduo, cod2, cod4
 const CODPM_VERSION = 1.1;
 const CONFIG_RENAME_EMPTY = 'Unnamed Server';
 const CONFIG_MAPIMG_URL = new URL('/mp_maps/', 'https://cod.pm'); // NOTE: trailing slash
+let LAST_MESSAGE_ID = null;
 
 // /!\ END of configuration /!\
 
@@ -246,17 +246,27 @@ function mapimage(mapimage) {
 
             try {
 
+                // if the LAST_MESSAGE_ID is null
                 if (!LAST_MESSAGE_ID) {
-                    const message = await DISCORD_WEBHOOK.send({ content: payload_json.content, embeds: payload_json.embeds });
+                    const message = await DISCORD_WEBHOOK.send({
+                        content: payload_json.content,
+                        embeds: payload_json.embeds
+                    });
 
-                    if (!message) {
+                    if (message) {
+                        // Updating LAST_MESSAGE_ID with the id of the message
+                        LAST_MESSAGE_ID = message.id;
+                    } else {
                         updated = 0;
                     }
 
-                    LAST_MESSAGE_ID = message.id;
                 } else {
-                    const updatedMessage = await DISCORD_WEBHOOK.editMessage(LAST_MESSAGE_ID, { content: payload_json.content, embeds: payload_json.embeds });
+                    const updatedMessage = await DISCORD_WEBHOOK.editMessage(LAST_MESSAGE_ID, {
+                        content: payload_json.content,
+                        embeds: payload_json.embeds
+                    });
 
+                    // if the message update didn't work
                     if (!updatedMessage) {
                         updated = 0;
                     }
