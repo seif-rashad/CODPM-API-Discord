@@ -1,5 +1,5 @@
 const { WebhookClient } = require("discord.js");
-const DISCORD_WEBHOOK = new WebhookClient({ id: "1239983856640196808", token: "NQoV5pDC5Zw-zVfBIlewSJTFoLx8srWsCsC4m9V4BeKBQ7OdCqrLUgnu5ldyWOCcmsFs" });
+const DISCORD_WEBHOOK = new WebhookClient({ id: "<id>", token: "<token>" });
 const DISCORD_TABLELAYOUT = 'ansi'; // 'ansi' or 'unicode'
 const DISCORD_MAXEMBEDS = 5;
 const CODPM_GAME = 'cod'; // cod, coduo, cod2, cod4
